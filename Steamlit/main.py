@@ -1,9 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import database as db
-from datetime import date
-import numpy as np
-from PIL import Image
 #---------------------------------------------------
 # page config settings:
 
@@ -137,6 +134,7 @@ def main():
                     sub=st.form_submit_button("Claim")
                     if(sub and check):
                         st.write("Your Item was found by "+user["username"]+" You can contact him\her at "+user["number"])
+                        st.warning("The Contact will be shown only once for security reasons , kindly note the contact details")
                         return db.f_change_status(user["key"],st.session_state["curlogin"])
 
 
@@ -161,6 +159,7 @@ def main():
                     sub=st.form_submit_button("Return")
                     if(sub):
                         st.write("The Item belongs to "+user["username"]+" You can contact him\her at "+user["number"])
+                        st.warning("The Contact will be shown only once for security reasons , kindly note the contact details")
                         return db.l_change_status(user["key"],st.session_state["curlogin"])
 
 
