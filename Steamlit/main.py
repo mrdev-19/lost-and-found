@@ -160,7 +160,7 @@ def main():
                     st.write("Place Where it is found : "+user["place"])
                     sub=st.form_submit_button("Return")
                     if(sub):
-                        st.write("Your Item belongs to "+user["username"]+" You can contact him\her at "+user["number"])
+                        st.write("The Item belongs to "+user["username"]+" You can contact him\her at "+user["number"])
                         return db.l_change_status(user["key"],st.session_state["curlogin"])
 
 
