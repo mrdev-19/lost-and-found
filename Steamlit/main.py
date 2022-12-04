@@ -130,6 +130,7 @@ def main():
                     st.subheader("Claim Lost Item")
                     st.write("Item : "+user["name"])
                     st.write("Place Where it is Lost : "+user["place"])
+                    st.write(user["other"])
                     check=st.checkbox("I Accept that this claim is legit")
                     sub=st.form_submit_button("Claim")
                     if(sub and check):
@@ -156,6 +157,7 @@ def main():
                     st.subheader("Return Found Item")
                     st.write("Item : "+user["name"])
                     st.write("Place Where it is found : "+user["place"])
+                    st.write(user["other"])
                     sub=st.form_submit_button("Return")
                     if(sub):
                         st.write("The Item belongs to "+user["username"]+" You can contact him\her at "+user["number"])
