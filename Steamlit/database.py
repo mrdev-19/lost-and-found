@@ -1,6 +1,12 @@
 import os
 from deta import Deta
-deta=Deta(st.secrets["db_key"])
+from dotenv import load_dotenv
+
+#load env var
+
+load_dotenv(".env")
+
+DETA_KEY=os.getenv("DETA_KEY")
 
 ldb=deta.Base("Lost")
 rdb=deta.Base("Found")
