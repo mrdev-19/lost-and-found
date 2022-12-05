@@ -81,7 +81,7 @@ def main():
             orientation="horizontal"
         )
     if(selected=="Lost"):
-        st.warning("Before Submitting a form make sure to check for your item in the "Found Items" coulmn")
+        st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
         with st.form("Lost entry form",clear_on_submit=True):
             st.header("Lost Portal")
             date=st.date_input("Enter the date on which the object is Lost")
@@ -99,7 +99,7 @@ def main():
                     st.success("Data Saved Successfully")
 
     elif(selected=="Found"):
-        st.warning("Before Submitting a form make sure to check for your item in the "Lost Items" coulmn")
+        st.warning("Before Submitting a form make sure to check for your item in the 'Lost Items' coulmn")
         with st.form("found_entry_form",clear_on_submit=True):
             st.header("Found Portal")
             date=st.date_input("Enter the date on which the object is found")
