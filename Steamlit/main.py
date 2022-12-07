@@ -82,7 +82,7 @@ def main():
         )
     if(selected=="Lost"):
         st.warning("Before Submitting a form make sure to check for your item in the 'Lost Items' coulmn")
-        with st.form("Lost entry form",clear_on_submit=True):
+        with st.form("Lost entry form_@dev_mr",clear_on_submit=True):
             st.header("Lost Portal")
             date=st.date_input("Enter the date on which the object is Lost")
             name=st.text_input("Enter the name of the object Lost",placeholder="...")
@@ -100,7 +100,7 @@ def main():
 
     elif(selected=="Found"):
         st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
-        with st.form("found_entry_form",clear_on_submit=True):
+        with st.form("found_entry_form@devmr",clear_on_submit=True):
             st.header("Found Portal")
             date=st.date_input("Enter the date on which the object is found")
             name=st.text_input("Enter the name of the object found",placeholder="...")
@@ -128,7 +128,7 @@ def main():
         dev={}
         for user in lost:
             if(user["name"]==option):
-                with st.form("Claim Lost Object",clear_on_submit=True):
+                with st.form("ClaimLostObject@mrdev19",clear_on_submit=True):
                     st.subheader("Claim Lost Item")
                     st.write("Item : "+user["name"])
                     st.write("Place Where it is Lost : "+user["place"])
@@ -155,7 +155,7 @@ def main():
         dev={}
         for user in found:
             if(user["name"]==option):
-                with st.form("Return Found Object",clear_on_submit=True):
+                with st.form("ReturnFoundObject@dev",clear_on_submit=True):
                     st.subheader("Return Found Item")
                     st.write("Item : "+user["name"])
                     st.write("Place Where it is found : "+user["place"])
