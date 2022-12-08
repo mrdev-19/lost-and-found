@@ -39,7 +39,6 @@ def log_sign():
             password=st.text_input("Password",type="password")
             submit=st.form_submit_button()
             if(submit):
-                password=password.encode('utf-8')
                 if(username=="" or password==""):
                     st.warning("Enter your login credentials")
                 else:
@@ -58,7 +57,6 @@ def log_sign():
             password=st.text_input("Enter your password",type="password")
             submit=st.form_submit_button()
             if(submit):
-                password=password.encode('utf-8')
                 dev=db.fetch_all_users()
                 usernames=[]
                 emails=[]
