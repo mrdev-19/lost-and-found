@@ -63,6 +63,8 @@ def log_sign():
             password=bcrypt.hashpw(password,salt)
             submit=st.form_submit_button()
             if(submit):
+                password=bcrypt.encode(password)
+                password=bcrypt.hashpw(password,salt)
                 dev=db.fetch_all_users()
                 usernames=[]
                 emails=[]
@@ -76,8 +78,6 @@ def log_sign():
                 elif(len(password)<=6):
                     st.error("Password cannot be less than 6 characters")
                 else:
-                    password=bcrypt.encode(password)
-                    password=bcrypt.hashpw(password,salt)
                     db.insert_user(username,password,email)
                     st.success("Signed Up Successfully")
 
