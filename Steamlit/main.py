@@ -96,7 +96,7 @@ def main():
                     st.error("Enter All Required Fields")
                 else:
                     db.insert_entry(st.session_state["curlogin"],str(date),name,place,number,other,lof)
-                    st.success("Data Saved Successfully")
+                    st.success("Form Submitted Successfully")
 
     elif(selected=="Found"):
         st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
@@ -112,7 +112,7 @@ def main():
             if(submitted):
                 #write the data inputted to database:
                 db.insert_entry(st.session_state["curlogin"],str(date),name,place,number,other,lof)
-                st.success("Data Saved Successfully")
+                st.success("Form Submitted Successfully")
 
     elif(selected=="Lost Items"):
         items=["Select an Item"]
