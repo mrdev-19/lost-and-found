@@ -38,7 +38,10 @@ def log_sign():
         with st.form("Login",clear_on_submit=True):
             st.header("Login")
             username=st.text_input("Username")
-            password=bcrypt.hashpw(bcrypt.encode(st.text_input("Password",type="password")),salt)
+            st.text_input("Password",type="password")
+            password=st.text_input("Enter your password",type="password")
+            password=bcrypt.encode(password)
+            password=bcrypt.hashpw(password,salt)
             submit=st.form_submit_button()
             if(submit):
                 if(username=="" or password==""):
@@ -56,7 +59,9 @@ def log_sign():
             st.header("Sign Up")
             email=st.text_input("Enter your email")
             username=st.text_input("Enter your username")
-            password=bcrypt.hashpw(bcrypt.encode(st.text_input("Enter your password",type="password")),salt)
+            password=st.text_input("Enter your password",type="password")
+            password=bcrypt.encode(password)
+            password=bcrypt.hashpw(password,salt)
             submit=st.form_submit_button()
             if(submit):
                 dev=db.fetch_all_users()
