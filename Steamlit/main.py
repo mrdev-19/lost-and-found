@@ -44,7 +44,7 @@ def log_sign():
                 if(username=="" or password==""):
                     st.warning("Enter your login credentials")
                 else:
-                    password=bcrypt.encode(password)
+                    password=password.encode('utf-8')
                     password=bcrypt.hashpw(password,salt)
                     if(db.authenticate(username,password)):
                         st.session_state["curlogin"]=username
@@ -61,7 +61,7 @@ def log_sign():
             password=st.text_input("Enter your password",type="password")
             submit=st.form_submit_button()
             if(submit):
-                password=bcrypt.encode(password)
+                password=password.encode('utf-8')
                 password=bcrypt.hashpw(password,salt)
                 dev=db.fetch_all_users()
                 usernames=[]
