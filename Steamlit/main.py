@@ -40,13 +40,13 @@ def log_sign():
             username=st.text_input("Username")
             st.text_input("Password",type="password")
             password=st.text_input("Enter your password",type="password")
-            password=bcrypt.encode(password)
-            password=bcrypt.hashpw(password,salt)
             submit=st.form_submit_button()
             if(submit):
                 if(username=="" or password==""):
                     st.warning("Enter your login credentials")
                 else:
+                    password=bcrypt.encode(password)
+                    password=bcrypt.hashpw(password,salt)
                     if(db.authenticate(username,password)):
                         st.session_state["curlogin"]=username
                         st.session_state["key"]="main"
@@ -77,6 +77,8 @@ def log_sign():
                 elif(len(password)<=6):
                     st.error("Password cannot be less than 6 characters")
                 else:
+                    password=bcrypt.encode(password)
+                    password=bcrypt.hashpw(password,salt)
                     db.insert_user(username,password,email)
                     st.success("Signed Up Successfully")
 
