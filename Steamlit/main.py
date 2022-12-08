@@ -59,8 +59,6 @@ def log_sign():
             email=st.text_input("Enter your email")
             username=st.text_input("Enter your username")
             password=st.text_input("Enter your password",type="password")
-            password=bcrypt.encode(password)
-            password=bcrypt.hashpw(password,salt)
             submit=st.form_submit_button()
             if(submit):
                 password=bcrypt.encode(password)
