@@ -1,5 +1,4 @@
 import streamlit as st
-import bcrypt
 from streamlit_option_menu import option_menu
 import database as db
 #---------------------------------------------------
@@ -26,7 +25,6 @@ st.markdown(hide_ele,unsafe_allow_html=True)
 #---------------------------------------------------
 curlogin=""
 def log_sign():
-    salt=bcrypt.gensalt()
     selected=option_menu(
         menu_title=None,
         options=["Login","signup"],
@@ -38,14 +36,12 @@ def log_sign():
         with st.form("Login",clear_on_submit=True):
             st.header("Login")
             username=st.text_input("Username")
-            password=st.text_input("Enter your password",type="password")
+            password=st.text_input("Password",type="password")
             submit=st.form_submit_button()
             if(submit):
                 if(username=="" or password==""):
                     st.warning("Enter your login credentials")
                 else:
-                    password=password.encode('utf-8')
-                    password=bcrypt.hashpw(password,salt)
                     if(db.authenticate(username,password)):
                         st.session_state["curlogin"]=username
                         st.session_state["key"]="main"
@@ -61,8 +57,6 @@ def log_sign():
             password=st.text_input("Enter your password",type="password")
             submit=st.form_submit_button()
             if(submit):
-                password=password.encode('utf-8')
-                password=bcrypt.hashpw(password,salt)
                 dev=db.fetch_all_users()
                 usernames=[]
                 emails=[]
