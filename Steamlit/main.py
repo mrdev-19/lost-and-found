@@ -38,7 +38,6 @@ def log_sign():
         with st.form("Login",clear_on_submit=True):
             st.header("Login")
             username=st.text_input("Username")
-            st.text_input("Password",type="password")
             password=st.text_input("Enter your password",type="password")
             submit=st.form_submit_button()
             if(submit):
