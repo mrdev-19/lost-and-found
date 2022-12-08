@@ -1,4 +1,5 @@
 import streamlit as st
+import bcrypt
 from streamlit_option_menu import option_menu
 import database as db
 #---------------------------------------------------
