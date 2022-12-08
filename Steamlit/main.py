@@ -25,6 +25,7 @@ st.markdown(hide_ele,unsafe_allow_html=True)
 #---------------------------------------------------
 curlogin=""
 def log_sign():
+    salt=bcrypt.gensalt()
     selected=option_menu(
         menu_title=None,
         options=["Login","signup"],
@@ -36,7 +37,7 @@ def log_sign():
         with st.form("Login",clear_on_submit=True):
             st.header("Login")
             username=st.text_input("Username")
-            password=st.text_input("Password",type="password")
+            password=bcrypt.hashpw(st.text_input("Password",type="password"))
             submit=st.form_submit_button()
             if(submit):
                 if(username=="" or password==""):
@@ -54,7 +55,7 @@ def log_sign():
             st.header("Sign Up")
             email=st.text_input("Enter your email")
             username=st.text_input("Enter your username")
-            password=st.text_input("Enter your password",type="password")
+            password=bcrypt.hashpw(st.text_input("Enter your password",type="password"))
             submit=st.form_submit_button()
             if(submit):
                 dev=db.fetch_all_users()
