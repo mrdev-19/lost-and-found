@@ -14,6 +14,7 @@ rdb=deta.Base("Found")
 cred=deta.Base("Creds")
 
 def insert_user(username,password,email):
+    username=username.strip()
     dev=fetch_all_users()
     usernames=[]
     emails=[]
@@ -28,6 +29,7 @@ def insert_user(username,password,email):
         cred.put({"key":username,"password":password,"email":email})
 
 def authenticate(username,password):
+    username=username.strip()
     var=1
     dev=fetch_all_users()
     usernames=[user["key"] for user in dev]
