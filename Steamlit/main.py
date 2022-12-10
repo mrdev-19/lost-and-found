@@ -119,7 +119,7 @@ def main():
         st.write("")
         st.write("")
         with st.form("Lost entry form_@dev_mr",clear_on_submit=True):
-            st.header("Lost Portal")
+            st.header("Lost Item Form")
             date=st.date_input("Enter the date on which the object is Lost")
             name=st.text_input("Enter the name of the object Lost",placeholder="...")
             place=st.text_input("Where was it lost ?",placeholder="...")
@@ -172,7 +172,7 @@ def main():
         st.write("")
         st.write("")
         with st.form("found_entry_form@devmr",clear_on_submit=True):
-            st.header("Found Portal")
+            st.header("Found Item Form")
             date=st.date_input("Enter the date on which the object is found")
             name=st.text_input("Enter the name of the object found",placeholder="...")
             place=st.text_input("Where is it found ?",placeholder="...")
