@@ -121,10 +121,10 @@ def main():
         with st.form("Lost entry form_@dev_mr",clear_on_submit=True):
             st.header("Lost Item Form")
             date=st.date_input("Enter the date on which the object is Lost")
-            name=st.text_input("Enter the name of the object Lost",placeholder="...")
-            place=st.text_input("Where was it lost ?",placeholder="...")
-            number=st.text_input("Enter Your Mobile Number ",placeholder="...")
-            other=st.text_input("Any other relevant details? ",placeholder="...")
+            name=st.text_input("Enter the name of the object Lost",placeholder="Phone etc.")
+            place=st.text_input("Where was it lost ?",placeholder="Atrium / XLab etc.")
+            number=st.text_input("Enter Your Mobile Number ",placeholder="+91 XXXXXXXXXX")
+            other=st.text_input("Any other relevant details? ",placeholder="Colour / Size / Specifications etc.")
             submitted=st.form_submit_button("Submit data")
             lof="lost"
             if(submitted):
@@ -174,10 +174,10 @@ def main():
         with st.form("found_entry_form@devmr",clear_on_submit=True):
             st.header("Found Item Form")
             date=st.date_input("Enter the date on which the object is found")
-            name=st.text_input("Enter the name of the object found",placeholder="...")
-            place=st.text_input("Where is it found ?",placeholder="...")
-            number=st.text_input("Enter Your Mobile Number ",placeholder="...")
-            other=st.text_input("Any other relevant details? ",placeholder="...")
+            name=st.text_input("Enter the name of the object found",placeholder="Phone etc.")
+            place=st.text_input("Where is it found ?",placeholder="Atrium / XLab etc.")
+            number=st.text_input("Enter Your Mobile Number ",placeholder="+91 XXXXXXXXXX")
+            other=st.text_input("Any other relevant details? ",placeholder="Colour / Size / Specifications etc.")
             lof="found"
             submitted=st.form_submit_button("Submit data")
             if(submitted):
