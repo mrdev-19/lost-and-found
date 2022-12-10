@@ -97,24 +97,6 @@ def main():
                 else:
                     db.insert_entry(st.session_state["curlogin"],str(date),name,place,number,other,lof)
                     st.success("Form Submitted Successfully")
-
-    elif(selected=="Found"):
-        st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
-        with st.form("found_entry_form@devmr",clear_on_submit=True):
-            st.header("Found Portal")
-            date=st.date_input("Enter the date on which the object is found")
-            name=st.text_input("Enter the name of the object found",placeholder="...")
-            place=st.text_input("Where is it found ?",placeholder="...")
-            number=st.text_input("Enter Your Mobile Number ",placeholder="...")
-            other=st.text_input("Any other relevant details? ",placeholder="...")
-            lof="found"
-            submitted=st.form_submit_button("Submit data")
-            if(submitted):
-                #write the data inputted to database:
-                db.insert_entry(st.session_state["curlogin"],str(date),name,place,number,other,lof)
-                st.success("Form Submitted Successfully")
-
-    elif(selected=="Lost Items"):
         items=["Select an Item"]
         lost=db.all_found()
         for user in lost:
@@ -140,8 +122,21 @@ def main():
                         st.warning("The Contact will be shown only once for security reasons , kindly note the contact details")
                         return db.f_change_status(user["key"],st.session_state["curlogin"])
 
-
-    elif(selected=="Found Items"):
+    elif(selected=="Found"):
+        st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
+        with st.form("found_entry_form@devmr",clear_on_submit=True):
+            st.header("Found Portal")
+            date=st.date_input("Enter the date on which the object is found")
+            name=st.text_input("Enter the name of the object found",placeholder="...")
+            place=st.text_input("Where is it found ?",placeholder="...")
+            number=st.text_input("Enter Your Mobile Number ",placeholder="...")
+            other=st.text_input("Any other relevant details? ",placeholder="...")
+            lof="found"
+            submitted=st.form_submit_button("Submit data")
+            if(submitted):
+                #write the data inputted to database:
+                db.insert_entry(st.session_state["curlogin"],str(date),name,place,number,other,lof)
+                st.success("Form Submitted Successfully")
         items=["Select an Item"]
         found=db.all_lost()
         for user in found:
@@ -165,7 +160,6 @@ def main():
                         st.write("The Item belongs to "+user["username"]+" You can contact him\her at "+user["number"])
                         st.warning("The Contact will be shown only once for security reasons , kindly note the contact details")
                         return db.l_change_status(user["key"],st.session_state["curlogin"])
-
 
 if "key" not in st.session_state:
     st.session_state["key"] = "log_sign"
