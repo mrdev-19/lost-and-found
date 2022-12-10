@@ -76,12 +76,12 @@ def log_sign():
 def main():
     selected=option_menu(
             menu_title=None,
-            options=["Lost","Found","Lost Items","Found Items"],
-            icons=["bi bi-search","bi bi-box","bi bi-bullseye","bi bi-award"],
+            options=["Lost","Found"],
+            icons=["bi bi-search","bi bi-box"],
             orientation="horizontal"
         )
     if(selected=="Lost"):
-        st.warning("Before Submitting a form make sure to check for your item in the 'Lost Items' coulmn")
+        st.warning("Submit a form only after making sure the item is not in the dropdown list")
         items=["Select an Item"]
         lost=db.all_found()
         for user in lost:
@@ -123,7 +123,7 @@ def main():
                     st.success("Form Submitted Successfully")
 
     elif(selected=="Found"):
-        st.warning("Before Submitting a form make sure to check for your item in the 'Found Items' coulmn")
+        st.warning("Submit a form only after making sure the item is not in the dropdown list")
         items=["Select an Item"]
         found=db.all_lost()
         for user in found:
